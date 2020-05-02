@@ -13,7 +13,7 @@ $page_title = 'Home Page';
     <div class="panel">
       <div class="jumbotron text-center">
          <h1>Welcome!</h1>
-         <p>Just browes around and find out what page you can access.</p>
+         <p>Just browse around and find out your deals</p>
       </div>
     </div>
  </div>

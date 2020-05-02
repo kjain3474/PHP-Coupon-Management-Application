@@ -123,3 +123,5 @@ function count_id(){
   static $count = 1;
   return $count++;
 }
+
+?>

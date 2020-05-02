@@ -1,5 +1,5 @@
 <?php
-  require_once(realpath($_SERVER["DOCUMENT_ROOT"]).'\includes\load.php');
+require_once(LIB_PATH_INC.DS."load.php");
 
 /*--------------------------------------------------------------*/
 /* Function for find all database table rows by table name
@@ -135,6 +135,17 @@ function tableExists($table){
         
         $sql = "SELECT nCouponID, cLabel, cMerchant, aCategoriesV2, cNetwork, aTypes, dtStartDate, dtEndDate, cStatus, cDescription from coupon";
         return find_by_sql($sql);
+     }
+
+
+/*--------------------------------------------------------------*/
+/* Function for getting all coupons which are active
+/*--------------------------------------------------------------*/
+   function get_all_active_coupons(){
+        
+        $sql = "SELECT * from coupon WHERE date(dtEndDate) >= curdate() ORDER BY dtEndDate ASC";
+        return find_by_sql($sql);
+
      }
 
 

@@ -91,11 +91,11 @@
             </div>
              <div class="form-group">
                   <label for="endDate" class="control-label">End Date</label>
-                  <input type="text" readonly class="form-control" name="endDate" value="<?php echo (read_date($e_coupon['dtEndDate'])) ?>">
+                  <input type="text" readonly class="form-control" name="endDate" value="<?php echo (read_date($e_coupon['dtEndDate'])); ?>">
             </div>
             <div class="form-group">
                   <label for="description" class="control-label">Description</label>
-                  <textarea rows="10" cols="30" class="form-control" name="description" ><?php echo $e_coupon['cDescription'] ?></textarea> 
+                  <textarea rows="10" cols="30" class="form-control" name="description" ><?php echo $e_coupon['cDescription']; ?></textarea> 
             </div>
 
 

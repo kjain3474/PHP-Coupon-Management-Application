@@ -51,7 +51,7 @@
           <tr>
             <th class="text-center" style="width: 1%;">#</th>
             <th class="text-center" style="width: 3%;">Coupon Id</th>
-            <th class="text-center" style="width: 3%;">Coupon Name</th>
+            <th class="text-center" style="width: 6%;">Coupon Name</th>
             <th class="text-center" style="width: 3%;">Merchant</th>
             <th class="text-center" style="width: 2%;">Category</th>
             <th style="width: 3%;">Network</th>
@@ -68,7 +68,7 @@
           <tr>
            <td class="text-center"><?php echo count_id();?></td>
            <td class="text-center"><?php echo remove_junk(ucwords($a_coupon['nCouponID']))?></td>
-           <td class="text-center"><?php echo remove_junk(ucwords($a_coupon['cLabel']))?></td>
+           <td class="text-center"><?php echo (ucwords($a_coupon['cLabel']))?></td>
            <td class="text-center"><?php echo remove_junk(ucwords($a_coupon['cMerchant']))?></td>
            <td class="text-center"><?php echo get_categories($a_coupon['aCategoriesV2'])?></td>
            <td class="text-center"><?php echo remove_junk(ucwords($a_coupon['cNetwork']))?></td>
