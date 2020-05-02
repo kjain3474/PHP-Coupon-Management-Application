@@ -25,3 +25,6 @@ Assignment
    2) For Content Writer:
 	  **username**  : user
 	  **password**  : user
+	 
+
+**Live App** : https://coupons-deal.herokuapp.com/index.php
