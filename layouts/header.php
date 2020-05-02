@@ -20,7 +20,7 @@
       <div class="logo pull-left"> Coupons Deal </div>
       <div class="header-content">
       <div class="header-date pull-left">
-        <strong><?php echo date("F j, Y, g:i a");?></strong>
+        <strong><?php echo date("F j, Y");?></strong>
       </div>
       <div class="pull-right clearfix">
         <ul class="info-menu list-inline list-unstyled">
@@ -41,7 +41,7 @@
       </div>
      </div>
     </header>
-    <div class="sidebar">
+    <div class="sidebar" id="sidebar">
       <?php if($user['user_level'] === '1'): ?>
         <!-- admin menu -->
       <?php include_once('admin_menu.php');?>

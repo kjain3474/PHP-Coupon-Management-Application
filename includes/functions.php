@@ -18,6 +18,41 @@ function remove_junk($str){
   $str = htmlspecialchars(strip_tags($str, ENT_QUOTES));
   return $str;
 }
+
+/*--------------------------------------------------------------*/
+/* Function for Remove type field extra characters
+/*--------------------------------------------------------------*/
+function clean_type_field($str){
+  $str = nl2br($str);
+  $str = htmlspecialchars(strip_tags($str, ENT_QUOTES));
+  $str = str_replace( array( '\\', '"', ';', '<', '>','[',']'), '', $str);
+  $str = ucwords($str);
+  return $str;
+}
+
+/*--------------------------------------------------------------*/
+/* Function for Remove type field extra characters
+/*--------------------------------------------------------------*/
+function get_categories($str){
+  $str = nl2br($str);
+  $str = htmlspecialchars(strip_tags($str, ENT_QUOTES));
+  $str = str_replace(array( '\\','"', ';', '<', '>','[',']'), '', $str);
+  $res = "";
+  $re = '/(?<=cName:).*?(?=,)/s';
+  preg_match_all($re, $str, $matches);
+
+    for ($x = 0; $x < sizeof($matches[0]); $x++) {
+      if($res == ""){
+        $res = $res.$matches[0][$x];
+      }else
+      {
+        $res =  $res.", ".$matches[0][$x];
+      }
+    }
+
+  echo $res;
+}
+
 /*--------------------------------------------------------------*/
 /* Function for Uppercase first character
 /*--------------------------------------------------------------*/
@@ -75,14 +110,16 @@ function redirect($url, $permanent = false)
 /*--------------------------------------------------------------*/
 function read_date($str){
      if($str)
-      return date('F j, Y, g:i:s a', strtotime($str));
+      return date('j F, Y', strtotime($str));
      else
       return null;
   }
-/*--------------------------------------------------------------*/
-/* Function for  Readable Make date time
-/*--------------------------------------------------------------*/
-function make_date(){
-  return strftime("%Y-%m-%d %H:%M:%S", time());
-}
 
+
+/*--------------------------------------------------------------*/
+/* Function for  index variable
+/*--------------------------------------------------------------*/
+function count_id(){
+  static $count = 1;
+  return $count++;
+}

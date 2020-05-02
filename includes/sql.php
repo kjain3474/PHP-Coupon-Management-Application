@@ -1,5 +1,5 @@
 <?php
-  require_once('includes/load.php');
+  require_once(realpath($_SERVER["DOCUMENT_ROOT"]).'\includes\load.php');
 
 /*--------------------------------------------------------------*/
 /* Function for find all database table rows by table name
@@ -34,6 +34,28 @@ function find_by_id($table,$id)
             return $result;
           else
             return null;
+     }
+}
+
+/*--------------------------------------------------------------*/
+/*  Function for Find data from table by id
+/*--------------------------------------------------------------*/
+function find_by_couponid($table,$id)
+{
+  global $db;
+  $id = (int)$id;
+    if(tableExists($table)){
+          $db -> begin();
+          $sql = $db->query("SELECT * FROM {$db->escape($table)} WHERE nCouponID='{$db->escape($id)}' LIMIT 1 FOR UPDATE");
+          if($result = $db->fetch_assoc($sql)){
+            $db -> commit();
+            return $result;
+          }
+          else
+            {
+              $db -> rollback();
+              return null;
+            }
      }
 }
 
@@ -104,6 +126,17 @@ function tableExists($table){
         endif;
 
      }
+
+
+/*--------------------------------------------------------------*/
+/* Function for getting all coupons
+/*--------------------------------------------------------------*/
+   function get_all_coupons(){
+        
+        $sql = "SELECT nCouponID, cLabel, cMerchant, aCategoriesV2, cNetwork, aTypes, dtStartDate, dtEndDate, cStatus, cDescription from coupon";
+        return find_by_sql($sql);
+     }
+
 
 
 ?>

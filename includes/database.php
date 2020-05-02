@@ -105,6 +105,24 @@ public function while_loop($loop){
  return $results;
 }
 
+
+public function begin(){
+  global $db;
+  $this->con->autocommit(FALSE);
+}
+
+
+public function commit(){
+  global $db;
+  $this->con->commit();
+}
+
+public function rollback(){
+  global $db;
+  $this->con->rollback();
+}
+
+
 }
 
 $db = new MySqli_DB();
