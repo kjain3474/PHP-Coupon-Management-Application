@@ -17,16 +17,16 @@
   if(isset($_POST['update'])) {
     $req_fields = array('newCouponName','description');
     validate_fields($req_fields);
+    $db->begin();
     if(empty($errors)){
              $nCouponID = (int)$e_coupon['nCouponID'];
              $cLabel = remove_junk($db->escape($_POST['newCouponName']));
              $cDescription = remove_junk($db->escape($_POST['description']));
-
-             $db->begin();
              $sql = "SELECT * from coupon WHERE nCouponID='{$db->escape($nCouponID)}' LIMIT 1 FOR UPDATE";
              $db->query($sql);
              $sql = "UPDATE coupon SET cLabel ='{$cLabel}', cDescription ='{$cDescription}' WHERE nCouponID='{$db->escape($nCouponID)}'";
              $result = $db->query($sql);
+
           if($result && $db->affected_rows() === 1){
             $db->commit();
             $session->msg('s',"CouponID ".(int)$e_coupon['nCouponID']." Updated ");
@@ -43,6 +43,7 @@
     }
   }
   elseif (isset($_POST['exit'])) {
+     $db->commit();
      redirect('dashboard.php', false);
   }
 ?>

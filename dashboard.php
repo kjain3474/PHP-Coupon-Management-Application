@@ -54,7 +54,7 @@
             <th class="text-center" style="width: 6%;">Coupon Name</th>
             <th class="text-center" style="width: 3%;">Merchant</th>
             <th class="text-center" style="width: 2%;">Category</th>
-            <th style="width: 3%;">Network</th>
+            <th class="text-center" style="width: 3%;">Network</th>
             <th class="text-center" style="width: 1%;">Types</th>
             <th class="text-center" style="width: 3%;">Start Date</th>
             <th class="text-center" style="width: 3%;">End Date</th>
