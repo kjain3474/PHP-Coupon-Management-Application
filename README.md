@@ -1,12 +1,11 @@
-# Guild-Assignment
-Assignment
-
+# PHP-Coupon-Management-Application
+A Coupon Managment App with CRUD capability with multiple user level logins.
+Also built in is public api support in folder 'api/' 
 
 ### Installing steps
 ****
 
-
-1. Download the repo with git (`git clone https://github.com/kjain3474/Guild-Assignment.git`)
+1. Download the repo with git (`git clone https://github.com/kjain3474/PHP-Coupon-Management-Application.git`)
 
 2. Open XAMPP Control Panel on your desktop and run Apache and MySQl services.
 
@@ -28,3 +27,8 @@ Assignment
 	 
 
 **Live App** : https://coupons-deal.herokuapp.com/index.php
+
+App Snapshots:
+![Coupons Deal App](coupons.jpg)
+
+![Editing Screen App](editing.jpg)
